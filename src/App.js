@@ -1,24 +1,34 @@
-import logo from './logo.svg';
-import './App.css';
+import {Nav,NavDropdown,Navbar,Form,InputGroup , FormControl , Button} from 'react-bootstrap';
+import {FaHome,FaUsers ,FaMedal, FaScroll} from 'react-icons/fa'
+import {FiLogOut} from 'react-icons/fi'
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+
+    <Navbar bg= "light" variant="light" expand="lg" collapseOnSelect="true">
+      <Navbar.Brand href="#home">CSP Hackathon</Navbar.Brand>
+      <Navbar.Toggle aria-controls="basic-navbar-nav" />
+      <Navbar.Collapse id="basic-navbar-nav">
+        <Nav className="mr-auto">
+          <Nav.Link href="#home"><span><FaHome/>&nbsp;Home</span></Nav.Link>
+          <Nav.Link href="#link"><span><FaMedal/>&nbsp;Scoreboard></span></Nav.Link>
+        </Nav>
+        <Nav>
+          <NavDropdown alignRight title={
+        <span>< FaUsers /> Team 01</span>} id="basic-nav-dropdown">
+            <NavDropdown.Item href="#action/3.1"> <span><FaScroll/>&nbsp;My submissions</span></NavDropdown.Item>
+            <NavDropdown.Divider />
+            <NavDropdown.Item href="#action/3.4"><span><FiLogOut/>&nbsp;Log out</span></NavDropdown.Item>
+          </NavDropdown>
+        </Nav>
+      </Navbar.Collapse>
+  </Navbar>
+
+    
+  
+  </>
   );
 }
 
