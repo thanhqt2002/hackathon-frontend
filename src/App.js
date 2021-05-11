@@ -1,35 +1,71 @@
-import {Nav,NavDropdown,Navbar,Form,InputGroup , FormControl , Button} from 'react-bootstrap';
-import {FaHome,FaUsers ,FaMedal, FaScroll} from 'react-icons/fa'
-import {FiLogOut} from 'react-icons/fi'
-
-function App() {
-
+import { useState, useEffect} from 'react'
+import Header from './components/Header'
+import Body from './components/Body'
+const App = ()=>{
+  const [key, setKey] = useState('home');
+  const fake_tasks = [
+    {
+      id:0,
+      title:"Problem 1",
+      content:"abc",
+      subtasks:1,
+    },
+    {
+      id:1,
+      title:"Problem 2",
+      content:"ABC",
+      subtasks:2,
+    },
+    {
+      id:2,
+      title:"Problem 3",
+      content:"ABC",
+      subtasks:3,
+    },
+    {
+      id:3,
+      title:"Problem 4",
+      content:"ABC",
+      subtasks:4,
+    },
+    {
+      id:4,
+      title:"Problem 5",
+      content:"ABC",
+      subtasks:5,
+    },
+    {
+      id:5,
+      title:"Problem 6",
+      content:"ABC",
+      subtasks:5,
+    },
+    {
+      id:6,
+      title:"Problem 7",
+      content:"ABC",
+      subtasks:5,
+    },
+    {
+      id:7,
+      title:"Problem 8",
+      content:"ABC",
+      subtasks:5,
+    },
+    {
+      id:8,
+      title:"Problem 9",
+      content:"ABC",
+      subtasks:5,
+    },
+  ]
+  const [tasks, setTasks] = useState([...fake_tasks])
   return (
     <>
-
-    <Navbar bg= "light" variant="light" expand="lg" collapseOnSelect="true">
-      <Navbar.Brand href="#home">CSP Hackathon</Navbar.Brand>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
-        <Nav className="mr-auto">
-          <Nav.Link href="#home"><span><FaHome/>&nbsp;Home</span></Nav.Link>
-          <Nav.Link href="#link"><span><FaMedal/>&nbsp;Scoreboard></span></Nav.Link>
-        </Nav>
-        <Nav>
-          <NavDropdown alignRight title={
-        <span>< FaUsers /> Team 01</span>} id="basic-nav-dropdown">
-            <NavDropdown.Item href="#action/3.1"> <span><FaScroll/>&nbsp;My submissions</span></NavDropdown.Item>
-            <NavDropdown.Divider />
-            <NavDropdown.Item href="#action/3.4"><span><FiLogOut/>&nbsp;Log out</span></NavDropdown.Item>
-          </NavDropdown>
-        </Nav>
-      </Navbar.Collapse>
-  </Navbar>
-
-    
-  
-  </>
+    <Header/>
+    <Body tasks={tasks}/>
+    </>
   );
 }
 
-export default App;
+export default App
