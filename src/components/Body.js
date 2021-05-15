@@ -1,13 +1,14 @@
 import Task from './Task'
+import Input from './Input'
 
 import Tab from 'react-bootstrap/Tab'
 import Nav from 'react-bootstrap/Nav'
 
 import {Row, Col} from 'react-bootstrap'
 
-const Body = ({tasks}) => {
+const Body = ({tasks , onSubmit}) => {
     return (
-        <Tab.Container id="left-tabs-example" defaultActiveKey="tab0">
+        <Tab.Container className="bg-info" id="left-tabs" defaultActiveKey="tab0">
       <Row>
         <Col sm={2}>
           <Nav justify fill variant="pills" className="flex-column">
@@ -18,11 +19,13 @@ const Body = ({tasks}) => {
             ))}
           </Nav>
         </Col>
-        <Col sm={10}>
+        <Col sm={8}>
           <Tab.Content>
             {tasks.map((task)=>(
               <Tab.Pane key={tasks.id} eventKey={"tab"+task.id}>
-                  <Task  task={task}/>
+                  <Task  onSubmit={onSubmit} task={task}/>
+                  <Col sm={1}/>
+                  <Input taskid={task.id} subtaskCnt={task.subtasks} onSubmit={onSubmit}/>
                 </Tab.Pane>
             ))}
           </Tab.Content>

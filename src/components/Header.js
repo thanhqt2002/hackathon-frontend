@@ -4,7 +4,7 @@ import {FiLogOut} from 'react-icons/fi'
 
 const Header = ()=>{
     return (
-        <Navbar bg= "light" variant="light" expand="lg" collapseOnSelect="true">
+        <Navbar bg= "dark" variant="dark" expand="lg" collapseOnSelect="true">
         <Navbar.Brand href="#home">CSP Hackathon</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
