@@ -5,7 +5,7 @@ const Task = ({task})=>{
     return (
         <Jumbotron className="bg-light  ">
         <div id={"P" + (task.id + 1)}>
-            <div className="fw-bold lead text-center display-5">{task.title} <br/> </div>
+            <div className="fw-bold lead text-center display-5">{task.problemname} <br/> </div>
             <Katexline taskcontent={task.content}/>
         </div>
         <br/>

@@ -1,10 +1,10 @@
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button'
 import InputGroup from 'react-bootstrap/InputGroup'
-import { Container, Row, Col, FormControl } from 'react-bootstrap'
+import {Col} from 'react-bootstrap'
 import {useState} from 'react'
-
-const Input = ({taskid , subtaskCnt,onSubmit}) => {
+import userService from './userService'
+const Input = ({taskid , taskname,subtaskCnt}) => {
 
     const [val1, setval1] = useState("")
     const [val2, setval2] = useState("")
@@ -15,7 +15,9 @@ const Input = ({taskid , subtaskCnt,onSubmit}) => {
 
     const handleSubmit = (event) => {
         event.preventDefault()
-        onSubmit(taskid,val1,val2,val3,val4,val5,val6)
+        console.log(taskid,subtaskCnt)
+        console.log([val1,val2,val3,val4,val5,val6].slice(0,subtaskCnt))
+        userService.makeSubmissions(taskid,taskname,subtaskCnt,[val1,val2,val3,val4,val5,val6].slice(0,subtaskCnt))
         setval1("")
         setval2("")
         setval3("")
